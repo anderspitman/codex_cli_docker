@@ -3,7 +3,7 @@ FROM debian:13
 ARG USER_ID=1000
 ARG GROUP_ID=1000
 ARG USER_NAME=codex
-ARG NODE_VERSION=24.11.1
+ARG NODE_VERSION=24.12.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates curl xz-utils git ripgrep \
