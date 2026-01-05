@@ -22,6 +22,7 @@ RUN curl -O https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux
 RUN chown -R ${USER_ID}:${GROUP_ID} node
 
 ENV PATH="/home/${USER_NAME}/node/bin:${PATH}"
+RUN echo 'PATH="$HOME/node/bin:${PATH}"' >> .profile
 
 USER ${USER_NAME}
 
