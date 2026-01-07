@@ -6,7 +6,7 @@ ARG USER_NAME=codex
 ARG NODE_VERSION=24.12.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        ca-certificates curl xz-utils git ripgrep \
+        ca-certificates curl xz-utils git ripgrep python3 \
         && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd --gid ${GROUP_ID} ${USER_NAME} \
