@@ -26,4 +26,4 @@ RUN echo 'PATH="$HOME/node/bin:${PATH}"' >> .profile
 
 USER ${USER_NAME}
 
-RUN npm install -g @openai/codex
+RUN npm install -g @openai/codex@0.80.0
