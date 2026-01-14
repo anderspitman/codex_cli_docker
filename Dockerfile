@@ -4,6 +4,7 @@ ARG USER_ID=1000
 ARG GROUP_ID=1000
 ARG USER_NAME=codex
 ARG NODE_VERSION=24.12.0
+ARG CODEX_VERSION=0.81.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates curl xz-utils git ripgrep python3 \
@@ -26,4 +27,4 @@ RUN echo 'PATH="$HOME/node/bin:${PATH}"' >> .profile
 
 USER ${USER_NAME}
 
-RUN npm install -g @openai/codex@0.80.0
+RUN npm install -g @openai/codex@${CODEX_VERSION}
