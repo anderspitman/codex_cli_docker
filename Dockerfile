@@ -26,5 +26,5 @@ RUN echo 'PATH="$HOME/node/bin:${PATH}"' >> .profile
 
 USER ${USER_NAME}
 
-ARG CODEX_VERSION=0.81.0
+ARG CODEX_VERSION=0.85.0
 RUN npm install -g @openai/codex@${CODEX_VERSION}
