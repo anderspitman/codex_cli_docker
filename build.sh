@@ -1,1 +1,1 @@
-docker build -t codex .
+docker build -t agentainer .

@@ -7,13 +7,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 ARG USER_ID=1000
 ARG GROUP_ID=1000
-ARG USER_NAME=codex
+ARG USER_NAME=agent
 RUN groupadd --gid ${GROUP_ID} ${USER_NAME} \
         && useradd --uid ${USER_ID} --gid ${GROUP_ID} --create-home ${USER_NAME}
 
 WORKDIR /home/${USER_NAME}
 
-ARG NODE_VERSION=24.12.0
+ARG NODE_VERSION=24.13.0
 RUN curl -O https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz \
         && tar xf node-v${NODE_VERSION}-linux-x64.tar.xz \
         && mv node-v${NODE_VERSION}-linux-x64 node \
@@ -26,5 +26,8 @@ RUN echo 'PATH="$HOME/node/bin:${PATH}"' >> .profile
 
 USER ${USER_NAME}
 
-ARG CODEX_VERSION=0.91.0
+ARG CODEX_VERSION=0.92.0
 RUN npm install -g @openai/codex@${CODEX_VERSION}
+
+ARG GEMINI_VERSION=0.26.0
+RUN npm install -g @google/gemini-cli@${GEMINI_VERSION}
