@@ -1,1 +1,1 @@
-docker run --rm -it --name agentainer -v /home/anders/code/agentainer:/dir agentainer
+docker run --rm -it --name agentainer -v $PWD:/dir agentainer
