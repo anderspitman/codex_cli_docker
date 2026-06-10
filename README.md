@@ -5,13 +5,10 @@ Generally I create a separate ephemeral container for each launch of the agent
 with something like this:
 
 ```
-docker run --rm -it --user $(id -u):$(id -g) -v $HOME/.codex:/home/agent/.codex -v $PWD:/dir agentainer 
+podman run --rm -it -v $HOME/.codex:/home/agent/.codex -v $PWD:/dir agentainer 
 ```
 
-That starts a container and logs in as a user with the same permissions as your
-user, but only with access to whatever folders you bind with `-v`.
-
-Once in the container you can then `cd /dir` and run `codex`, `gemini`, etc.
+Once in the container you can then `cd /dir` and run `pi`, etc.
 
 One caveat is that login wasn't working for me from inside the container,
 which is why I'm binding it to $HOME/.codex. Basically I run codex on the host
